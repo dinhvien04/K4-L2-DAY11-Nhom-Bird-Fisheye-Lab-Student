@@ -9,7 +9,7 @@
 ## Findings action=rework
 - adasind_249480.jpg L1 BOX_GEOMETRY: không áp dụng
 - adasind_261480.jpg L4 ATTRIBUTE: không áp dụng
-- adasind_265065.jpg L2 BOX_GEOMETRY: không áp dụng
+- adasind_265065.jpg L1 BOX_GEOMETRY: không áp dụng
 - adasind_152940.jpg L3+R3 MISSING: không áp dụng
 - adasind_152940.jpg L5+R1 MISSING: không áp dụng
 - adasind_152940.jpg R6 MISSING: chưa sửa

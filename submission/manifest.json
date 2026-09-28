@@ -66,7 +66,7 @@
     {
       "file": "r1_craft/selfqc.md",
       "lines": 28,
-      "sha256": "02c492dc1b1d6d4cfc53d1ee25b1588a0e57f64deeda243724a7536b9d047459"
+      "sha256": "a4b8e0401341b4cb00695687eb4543f6d10eb8fc5a45c550c20afcee328f002c"
     },
     {
       "file": "r1_craft/reference.txt",
@@ -87,7 +87,7 @@
     {
       "file": "r2_qa/qa_review.md",
       "lines": 16,
-      "sha256": "d52a71c025e7bbce77cd8f8759683bf4234e16712ae6724ddd824593d534da9e"
+      "sha256": "df43c32a6a6473ecf0fa63084b245e8ec87c118607ad6c71b2f6f585b9b92deb"
     },
     {
       "file": "r2_qa/qa_overlay.html",
@@ -143,17 +143,17 @@
     {
       "file": "rework/delta.md",
       "lines": 22,
-      "sha256": "28f15500571c01f395401caee042bf8e41cbc6be687c37a6cfe43f1d38a4af0a"
+      "sha256": "45c682d2d489ba92127fece3ea9f0cd8d2abbbef56468f4772fada2b1791e4e8"
     },
     {
       "file": "findings.csv",
       "lines": 34,
-      "sha256": "c5e614ac13c6760f53117d80a5672f26c6de5ac2ebb1d4367f6bc586ae7a9862"
+      "sha256": "8063fb93cb885b36f43ba3a986801ca88023520f712cb30680653b0951dbf3a0"
     },
     {
       "file": "10_error_card.md",
-      "lines": 45,
-      "sha256": "e029216e9624cc5bd65519cb79e098f9b76d192a3aa089afccbe17ff4307a294"
+      "lines": 44,
+      "sha256": "ae10ff5f1061c97723c08d3e961f0f762673dad64073dea1b7be8c45a436c3c4"
     },
     {
       "file": "20_guideline_patch.md",
@@ -163,7 +163,7 @@
     {
       "file": "30_escalation_ticket.md",
       "lines": 15,
-      "sha256": "c462f1032dc963ea9bb369d6db08fe4c8bc8f5542dda11b4a7431592cc582f18"
+      "sha256": "09615f145bd348c5bebd8001837e415b7d115aad0f7f3f6de38774fee61cf50e"
     },
     {
       "file": "40_decision_log.csv",

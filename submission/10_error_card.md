@@ -18,14 +18,13 @@
 | mid | B3 | IGNORE_SCOPE | 1 |
 | mid | B3 | MISSING | 3 |
 | mid | B3 | SPURIOUS | 2 |
-| unknown | B4 | LOOSE_BOX | 1 |
-| unknown | B4 | MISSING_IGNORE | 1 |
-| unknown | B4 | MISSING_OCCLUDED | 1 |
+| unknown | B4 | ATTRIBUTE | 1 |
+| unknown | B4 | BOX_GEOMETRY | 2 |
 
 ## Top defects
 - SPURIOUS: 14 (ví dụ frame adasind_019560.jpg)
 - MISSING: 8 (ví dụ frame adasind_152940.jpg)
-- IGNORE_SCOPE: 3 (ví dụ frame adasind_152940.jpg)
+- ATTRIBUTE: 3 (ví dụ frame adasind_261480.jpg)
 
 ## Phân tích của bạn
 

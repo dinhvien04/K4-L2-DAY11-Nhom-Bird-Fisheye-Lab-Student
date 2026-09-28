@@ -14,8 +14,8 @@
 - Tên task thiếu raw_fisheye
 
 ## Checklist thủ công
-- [x] Phạm vi H=40 và vật cần vẽ
-- [x] lens_border và ego_body
+- [ ] Phạm vi H=40 và vật cần vẽ (chưa đạt: còn box H < 40px tại adasind_152940.jpg và adasind_212280.jpg)
+- [ ] lens_border và ego_body (chưa đạt: mới có 6 polygon lens_border, còn thiếu ego_body cả 3 frame)
 - [x] Class sáu nhãn
 - [x] Rider và Bike
 - [x] Geometry trên ảnh fisheye gốc

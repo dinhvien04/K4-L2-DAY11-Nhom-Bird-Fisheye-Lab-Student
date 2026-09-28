@@ -5,7 +5,7 @@
 - **Frame:** `adasind_167700.jpg`
 - **Object ref:** L8+M8
 - **Cell:** `LM_noR` — cả người gán nhãn (L) và model (M) phát hiện đối tượng, nhưng reference (R) không ghi nhận
-- **Ảnh chụp:** Ảnh đối chiếu trong báo cáo overlay `r1_craft/compare.html` (frame `adasind_167700.jpg`, đối tượng L8+M8) và ảnh chụp vùng biên thấu kính tại `screenshots/r2_l1.png`
+- **Ảnh chụp:** Báo cáo overlay trực quan `r1_craft/compare.html` (frame `adasind_167700.jpg`, hiển thị chi tiết đối tượng L8+M8 trong so sánh với reference)
 - **What:** SPURIOUS
 - **Why:** `E3_data_defect` — trên ảnh camera đơn lẻ ADASIND, đối tượng L8+M8 có sự bất đồng giữa annotator/model với reference (reference ambiguity ở vùng biến dạng thấu kính). Đây là minh chứng điển hình để nhóm escalate lên Data Ops nhằm chuẩn bị policy cho tình huống giả lập SVM 4 camera.
 - **Expected impact:** Khi mở rộng sang hệ thống giả lập SVM 4 camera, các đối tượng ở vùng giáp ranh hai thấu kính camera (seam region) nếu không có quy chuẩn sẽ dẫn đến việc các annotator gán nhãn không nhất quán, ảnh hưởng đến độ chính xác của hệ thống BEV 360 khi ghép nhãn từ nhiều camera.

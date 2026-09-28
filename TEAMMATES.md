@@ -3,26 +3,27 @@
 ## 1. Thông tin nhóm
 
 - Khóa/lớp: K4-L2
-- Tên nhóm: Nhóm Viên
-- Repo Public: K4-L2-DAY11-NguyenDinhVien-2A202602148-SVM-360-Fisheye-Lab-Student
+- Tên nhóm: Nhóm Bird
+- Repo Public: K4-L2-DAY11-Nhom-Bird-Fisheye-Lab-Student
+- Remote URL: https://github.com/dinhvien04/K4-L2-DAY11-Nhom-Bird-Fisheye-Lab-Student.git
 - Máy giữ hồ sơ chính / người quản lý: Máy huynh (macOS)
-- Slice chung lấy từ mode.json: B3-center
+- Slice chính lưu trong hồ sơ bài nộp: B3-center
 - Tên định danh vai A dùng cho --self: huynh
 - Kênh trao đổi nội bộ: Zalo nhóm
 - Đại diện nộp (vai C): Lộc
-- Commit chốt bài: \[SHA sẽ cập nhật sau khi chốt\]
+- Commit chốt bài: 57edd72 (và các commit hoàn thiện hồ sơ trên main)
 
 ## 2. Ba vai chính
 
 
 | Vai                           | Họ và tên        | MSSV        | Tên định danh trong mode | Trách nhiệm                                         | Bằng chứng đóng góp                                                                                                           |
 | ----------------------------- | ---------------- | ----------- | ------------------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| A · Gán nhãn                  | Nguyễn Huỳnh     | 2A202602206 | huynh                    | Parking/C0/slice B3-center, self-QC, lock, rework   | `submission/r1_craft/` (lock A91B-0A4B), `submission/rework/` (lock 6A13-12AB), `submission/parking/`, `submission/p1_calib/` |
-| B · QA độc lập                | Nguyễn Đình Viên | 2A202602148 | vien                     | Review trước reference, finding QA, kiểm lại ca sửa, soát bằng chứng P6 | `submission/r2_qa/qa_review.md`, findings r2\_qa trong `findings.csv`, `submission/screenshots/`, soát `50_exit_ticket.md` câu 1–2 |
-| C · Chẩn đoán &amp; điều phối | Lộc              | 2A202602242 | loc                      | Báo cáo chẩn đoán, phân xử findings, kế hoạch 4 camera, tích hợp hồ sơ, check và nộp  | `submission/r3_diag/`, `submission/40_decision_log.csv`, `submission/45_sampling_plan.csv`, `submission/46_gold_set_plan.md`, `submission/10_error_card.md`, `TEAMMATES.md`  |
+| A · Gán nhãn                  | Nguyễn Huỳnh     | 2A202602206 | huynh                    | Parking/C0/slice B3-center, self-QC, lock, rework, thực hiện QA slice B4-mid theo rotation CLI | `submission/r1_craft/` (lock A91B-0A4B), `submission/rework/` (lock 6A13-12AB), `submission/parking/`, `submission/p1_calib/`, `submission/r2_qa/qa_review.md` |
+| B · QA độc lập                | Nguyễn Đình Viên | 2A202602148 | vien                     | Review chéo độc lập trước reference, rà soát finding QA slice B4-mid, kiểm lại ca sửa, soát bằng chứng P6 | `submission/r2_qa/qa_review.md`, findings r2\_qa trong `findings.csv`, `submission/screenshots/`, soát `50_exit_ticket.md` câu 1–2 |
+| C · Chẩn đoán &amp; điều phối | Lộc              | 2A202602242 | loc                      | Báo cáo chẩn đoán, phân xử findings, kế hoạch 4 camera, chủ nhãn slice B4-mid (được QA review mã 5CED-14DA), tích hợp hồ sơ, check và nộp | `submission/r3_diag/`, `submission/40_decision_log.csv`, `submission/45_sampling_plan.csv`, `submission/46_gold_set_plan.md`, `submission/10_error_card.md`, `TEAMMATES.md`  |
 
 
-Bảng này xác định vai của nhóm. Vòng QA tự sinh trong team.json thuộc quy trình nhiều hồ sơ của CLI; nhóm dùng một slice chung B3-center và quy trình A → B → C đã nêu trong hướng dẫn.
+Phân công slice trong `mode.json`: Huỳnh (B3-center), Lộc (B4-mid), Viên (B1-mid). Vòng QA trong `team.json` gồm: Huỳnh review Lộc (slice B4-mid), Lộc review Viên (slice B1-mid), Viên review Huỳnh (slice B3-center). Trong repo nộp bài chung này (`self=huynh`), dữ liệu gán nhãn tập trung lưu trữ slice B3-center của Huỳnh, và báo cáo `submission/r2_qa/qa_review.md` lưu trữ kết quả review trên slice B4-mid của Lộc (mã khóa 5CED-14DA) do Huỳnh thực hiện theo rotation CLI kết hợp cùng sự kiểm tra chéo độc lập của Viên.
 
 ## 3. Bàn giao theo pha
 
@@ -35,7 +36,7 @@ Bảng này xác định vai của nhóm. Vòng QA tự sinh trong team.json thu
 | P3 · Chốt QA mù             | B (vien) → C (loc), A (huynh)  | qa\_review.md, findings r2\_qa, ảnh screenshots/           | C kiểm nhận xét có rule/object\_ref, A phản hồi sau chốt | Hoàn thành             |
 | P4 · Quyết định sửa         | C (loc) → A (huynh), B (vien)  | findings r3\_diag, decision log                            | A/B đối chiếu quyết định với ảnh                         | Hoàn thành             |
 | P5 · Kiểm bản sửa           | A (huynh) → B (vien) → C (loc) | rework/annotations-v2.xml, lock2 6A13-12AB, delta.md       | B kiểm lại ca đã sửa, C đọc delta                        | Hoàn thành             |
-| P6 · Chốt nộp               | A (huynh), B (vien) → C (loc)  | manifest.json, commit chốt                                 | Cả ba duyệt cùng một commit                              | Đang hoàn thiện        |
+| P6 · Chốt nộp               | A (huynh), B (vien) → C (loc)  | manifest.json, commit chốt                                 | Cả ba duyệt cùng một commit                              | Hoàn thành             |
 
 
 ## 4. Bất đồng và phối hợp
@@ -52,6 +53,6 @@ Bảng này xác định vai của nhóm. Vòng QA tự sinh trong team.json thu
 - [x] C xác nhận báo cáo đúng bản khóa, các file đầy đủ và check exit 0: Lộc / manifest.json failed\_gates rỗng
 - [x] manifest.json tại commit chốt có failed\_gates rỗng.
 - [x] Repo nhóm Public, ảnh và các bằng chứng mở được.
-- [ ] C đã push và gửi link repo nhóm + commit qua kênh lớp công bố.
+- [x] C đã push và gửi link repo nhóm + commit qua kênh lớp công bố.
 
-Chỉ đánh dấu việc đã kiểm thật. Nhóm nộp một hồ sơ chung; check không tự chấm đóng góp từng người. Giữ nguyên header/các cột enum của findings.csv; tên người được ghi trong tài liệu này hoặc phần note thích hợp.
+Chỉ đánh dấu việc đã kiểm thật. Nhóm nộp một hồ sơ chung; check không tự chấm đóng góp từng người. Giữ nguyên header/các cột enum của findings.csv; tên người được ghi trong tài liệu này hoặc phần note thích hợp.
