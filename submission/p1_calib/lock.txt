@@ -1,0 +1,9 @@
+round: calib
+slice: C0
+sha256: 5bcd423990060fa7578ccd0f0640aa1f23419de0369c59ce43d07b87fbf039ba
+code: 5BCD-4239
+locked_at: 2026-09-28T18:38:37+07:00
+shapes: polygon=4
+prefill_kept: 0
+prefill_edited: 0
+new: 0

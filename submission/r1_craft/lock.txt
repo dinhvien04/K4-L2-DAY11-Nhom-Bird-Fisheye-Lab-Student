@@ -1,0 +1,9 @@
+round: r1_craft
+slice: B4-mid
+sha256: 5ced14da10fc611aaa352303225bad21b3283441fcd0b0a3428719f80546bc3c
+code: 5CED-14DA
+locked_at: 2026-09-28T18:49:01+07:00
+shapes: box=14, polygon=6
+prefill_kept: 0
+prefill_edited: 1
+new: 13

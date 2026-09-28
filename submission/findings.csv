@@ -1,1 +1,29 @@
 round,slice,frame,object_ref,cell,what,why,severity,owner,rule_id,evidence,action,rules_version,note
+r3_diag,B4-mid,adasind_249480.jpg,M2,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model dự đoán nhầm bóng trên ảnh fisheye,rework,keep_with_reason,v1.0.0,Lỗi miền dữ liệu model
+r3_diag,B4-mid,adasind_249480.jpg,M4,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model dự đoán nhầm vùng méo fisheye,rework,keep_with_reason,v1.0.0,Model nhầm méo ảnh
+r3_diag,B4-mid,adasind_249480.jpg,M6,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa ở góc ảnh,rework,keep_with_reason,v1.0.0,Lỗi model domain
+r3_diag,B4-mid,adasind_261480.jpg,L1+R4,LR_noM,MISSING,E4_model_domain,P1,ai_team,R03,Cả người và reference gán nhãn nhưng model bỏ sót,rework,keep_with_reason,v1.0.0,Model bỏ sót đối tượng
+r3_diag,B4-mid,adasind_261480.jpg,L2,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R01,Gán nhãn thừa đối tượng nhỏ không đủ 40px,rework,rework,v1.0.0,Người gán vẽ thừa
+r3_diag,B4-mid,adasind_261480.jpg,R5,R_only,MISSING,E0_reference_defect,P1,data_ops,R01,Teaching reference ghi nhận vật mờ xa,rework,keep_with_reason,v1.0.0,Lỗi reference mờ
+r3_diag,B4-mid,adasind_261480.jpg,R6,R_only,MISSING,E0_reference_defect,P1,data_ops,R01,Reference vẽ box đối tượng khuất xa,rework,keep_with_reason,v1.0.0,Reference quá nhạy cảm
+r3_diag,B4-mid,adasind_261480.jpg,M2,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo box thừa ở khu vực rìa,rework,keep_with_reason,v1.0.0,Model lỗi fisheye
+r3_diag,B4-mid,adasind_261480.jpg,M5,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa phương tiện,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_261480.jpg,M6,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa box,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_261480.jpg,M8,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa box,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_261480.jpg,M10,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa box,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_261480.jpg,M11,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa box,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_261480.jpg,M12,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa box,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_261480.jpg,M13,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model báo thừa box,rework,keep_with_reason,v1.0.0,Model sai miền
+r3_diag,B4-mid,adasind_265065.jpg,L2,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R01,Vẽ thừa box không có thực,rework,rework,v1.0.0,Lỗi vẽ thừa
+r3_diag,B4-mid,adasind_265065.jpg,R1+M3,RM_noL,MISSING,E1_annotator_error,P1,annotator,R04,Reference và Model đều phát hiện nhưng người gán bỏ sót,rework,rework,v1.0.0,Bỏ sót đối tượng
+r3_diag,B4-mid,adasind_265065.jpg,R2+M2,RM_noL,MISSING,E1_annotator_error,P1,annotator,R03,Reference và Model phát hiện Bike nhưng người gán bỏ sót,rework,rework,v1.0.0,Bỏ sót xe hai bánh
+r3_diag,B4-mid,adasind_265065.jpg,R5+M7,RM_noL,MISSING,E1_annotator_error,P1,annotator,R03,Bỏ sót xe 2 bánh khuất,rework,rework,v1.0.0,Bỏ sót Bike
+r3_diag,B4-mid,adasind_265065.jpg,R6+M6,RM_noL,MISSING,E1_annotator_error,P1,annotator,R03,Bỏ sót xe 2 bánh,rework,rework,v1.0.0,Bỏ sót Bike
+r3_diag,B4-mid,adasind_265065.jpg,R7,R_only,MISSING,E0_reference_defect,P2,data_ops,R01,Reference ghi nhận vật quá mờ xa,rework,keep_with_reason,v1.0.0,Lỗi reference
+r3_diag,B4-mid,adasind_265065.jpg,R8+M5,RM_noL,MISSING,E1_annotator_error,P1,annotator,R03,Bỏ sót xe hai bánh nhỏ,rework,rework,v1.0.0,Bỏ sót xe
+r3_diag,B4-mid,adasind_265065.jpg,M8,M_only,SPURIOUS,E4_model_domain,P2,ai_team,R02,Model dự đoán thừa ở góc ảnh,rework,keep_with_reason,v1.0.0,Model sai miềncalib,C0,adasind_019560.jpg,R1,na,MISSING,,,,,,,,
+calib,C0,adasind_019560.jpg,R2,na,MISSING,,,,,,,,
+calib,C0,adasind_019560.jpg,R3,na,MISSING,,,,,,,,
+calib,C0,adasind_019560.jpg,R4,na,MISSING,,,,,,,,
+calib,C0,adasind_019560.jpg,R5,na,MISSING,,,,,,,,
+calib,C0,adasind_019560.jpg,R6,na,MISSING,,,,,,,,
