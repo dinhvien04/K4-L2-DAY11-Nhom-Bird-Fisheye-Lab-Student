@@ -1,0 +1,9 @@
+round: calib
+slice: C0
+sha256: 9ffb137af547b0aef0e1317356405a9a7baa288866066e10276191715fe0492f
+code: 9FFB-137A
+locked_at: 2026-09-28T17:48:23+07:00
+shapes: box=8
+prefill_kept: 0
+prefill_edited: 0
+new: 8

@@ -31,16 +31,16 @@ Kết quả mong đợi: màn hình hiện tên các lệnh như `doctor`, `mode
 
 Các khối lệnh bên dưới dùng dạng Mac `python3 lab11.py ...`. Trên Windows, chỉ thay **`python3` ở đầu dòng** bằng **`py`**, phần còn lại giữ nguyên. Ví dụ:
 
-| Bạn cần làm | Mac | Windows |
-|---|---|---|
-| Kiểm môi trường | `python3 lab11.py doctor` | `py lab11.py doctor` |
+| Bạn cần làm        | Mac                       | Windows              |
+| ------------------ | ------------------------- | -------------------- |
+| Kiểm môi trường    | `python3 lab11.py doctor` | `py lab11.py doctor` |
 | Xem việc tiếp theo | `python3 lab11.py status` | `py lab11.py status` |
 
 Phần trong dấu `<...>` là chỗ bạn thay bằng dữ liệu của mình. Chẳng hạn `<zip-cuối>` là file ZIP bạn vừa tải từ CVAT; không gõ nguyên dấu `<` và `>`. `make` chỉ là lối tắt dành cho người đã có công cụ đó, không phải điều kiện để làm bài. [Rubric 100 điểm](RUBRIC.md) cho biết người soát xem bằng chứng nào; `python3 lab11.py check` kiểm cấu trúc và độ đầy đủ, **không chấm chất lượng nhãn hay lập luận**.
 
 ## P0 · phút 0–40 — khởi động: repo, CVAT, bãi đỗ và kế hoạch
 
-1. Giữ repo bài nộp ở chế độ **Public** để người chấm mở được link; template nguồn có thể còn private trước lúc phát lớp. Mở Docker Desktop và chờ Engine chạy. Trong thư mục CVAT đã cài từ Day 2 (ví dụ `cvat-day2`), chạy `docker compose start`; nếu báo chưa có container, dùng `docker compose up -d`. Trở lại thư mục repo học viên, mở `http://localhost:8080` và đăng nhập tài khoản Day 2. Không cài một CVAT khác cho bài này.
+1. Giữ repo bài nộp ở chế độ **Public** để người chấm mở được link. Mở `https://cvat.itup.io.vn` và đăng nhập tài khoản CVAT được cấp. Nếu dùng máy chủ CVAT khác, đặt biến môi trường `CVAT_URL` trước khi chạy các lệnh.
 2. Chạy `python3 lab11.py doctor`. Đọc `submission/00_setup/doctor.txt`: Python cần từ 3.9, CVAT kết nối được, Git không track `.env`, repo Public được xác nhận hoặc bạn tự kiểm nếu không có `gh`. Nếu CVAT không kết nối, xem [hướng dẫn khởi động và lỗi](docs/01-guide-cvat-vi.md). Sau buổi có thể chạy `docker compose stop` trong thư mục CVAT; **không dùng `docker compose down -v`** vì có thể xoá task và nhãn đã lưu.
 3. Solo chạy `python3 lab11.py mode --members ten-cua-ban`. Nhóm 2–3 người: mọi người dùng cùng danh sách tên nhưng mỗi người khai mình qua `--self`, ví dụ `python3 lab11.py mode --members an,binh,chi --self binh` trong repo của Bình. Lệnh tạo `submission/00_setup/mode.json`, thêm `team.json` khi có nhiều người và in **Slice của bạn**. Dùng slice đó ở P2; thiếu `--self` trong nhóm sẽ bị từ chối để tránh cả nhóm làm cùng một slice. Điền `submission/00_setup/sensor_context.md` bằng **quan sát từ ảnh**, không đoán thông số rig chưa có. Dành phút 0–20 của P0 cho các việc này.
 
@@ -52,11 +52,11 @@ Hai ảnh dưới đây đã đi kèm repo và có nguồn, giấy phép trong [
 
 ![Ảnh bãi đỗ lõi để tự chọn vạch ô đỗ và vùng mặt đường nhìn thấy](assets/parking/parking-lot-core.jpg)
 
-*Ảnh core — “Parkinglot empty”, Öljylautta, public domain. Tìm các đoạn sơn phân chia **từng ô đỗ** và phần lối xe chạy trống nhìn thấy; ảnh này không cung cấp vùng lái xe an toàn hay ground truth.*
+_Ảnh core — “Parkinglot empty”, Öljylautta, public domain. Tìm các đoạn sơn phân chia **từng ô đỗ** và phần lối xe chạy trống nhìn thấy; ảnh này không cung cấp vùng lái xe an toàn hay ground truth._
 
 ![Ảnh bãi đỗ đối chiếu để phân biệt vạch ô đỗ với biên của lối xe chạy](assets/parking/parking-lot-contrast.png)
 
-*Ảnh đối chiếu — “Apartment Complex Parking Lot 1”, TylerMascola, CC0 1.0. So vai trò của vạch chia ô ở tiền cảnh với mép/lối xe chạy; **không** đưa ảnh này vào task export của bài core.*
+_Ảnh đối chiếu — “Apartment Complex Parking Lot 1”, TylerMascola, CC0 1.0. So vai trò của vạch chia ô ở tiền cảnh với mép/lối xe chạy; **không** đưa ảnh này vào task export của bài core._
 
 1. Chạy `python3 lab11.py parking` để in đường dẫn chính xác tới `assets/parking/parking-lot-core.jpg` và `assets/parking/labels.json`. Trong CVAT: **Tasks → + → Create a new task**; đặt tên `Day11 · parking_line · public-sample`; **Labels → Raw**, xoá nội dung có sẵn và dán toàn bộ `assets/parking/labels.json`, bấm **Save**; **Select files → My computer**, chọn **chỉ** `parking-lot-core.jpg`; **Submit & Open → Job #…**.
 2. Trên ảnh core, chọn **Draw new polyline → parking_line → Shape**, bấm từng điểm dọc theo phần sơn nhìn thấy của **ít nhất hai vạch phân chia hai ô riêng**, bấm **N** hoặc **Done** để kết thúc mỗi polyline. Đường dừng tại chỗ vạch bị che hay kết thúc; không nối qua phần không thấy. Chọn **Draw new polygon → free_space → Shape**, bấm ít nhất ba điểm bao phần mặt đường trống **nhìn thấy được** của lối xe chạy, kết thúc bằng **N/Done**. Polygon không chạy xuyên xe, curb, cây hoặc vùng bị che. Một vạch là mép đường, mũi tên, vạch qua đường hay chỉ dẫn lối xe chạy thì không tự động là `parking_line`.
@@ -70,7 +70,7 @@ Phác `submission/45_sampling_plan.csv` cho `front/rear/left/right × normal/har
 
 ![Sơ đồ khái niệm bốn camera và vùng chồng ở các góc xe](assets/diagrams/four-camera-seams.svg)
 
-*Sơ đồ chỉ để đặt câu hỏi lập kế hoạch: mỗi camera cần ca normal/hard riêng; một vật tại seam có thể xuất hiện hai lần mà chưa chắc là lỗi trùng. Không dùng hình này làm calibration hoặc nhãn chuẩn.*
+_Sơ đồ chỉ để đặt câu hỏi lập kế hoạch: mỗi camera cần ca normal/hard riêng; một vật tại seam có thể xuất hiện hai lần mà chưa chắc là lỗi trùng. Không dùng hình này làm calibration hoặc nhãn chuẩn._
 
 ## P1 · phút 40–70 — calibration rồi xem tín hiệu chất lượng
 
@@ -79,20 +79,20 @@ Phác `submission/45_sampling_plan.csv` cho `front/rear/left/right × normal/har
 
 ![Frame ADASIND đã làm mờ khuôn mặt và biển số, cho thấy vòng kính và thân xe ego](assets/images/adasind_019560.jpg)
 
-*Ảnh minh hoạ quan sát, **không phải đáp án C0** — ADASIND của Singh, Biswas và Paul, CC BY 4.0; bản repo chọn tập con và làm mờ khuôn mặt/biển số. Quan sát vòng kính, méo ở rìa và vùng thân xe ở đáy; không suy vị trí gần/xa của vật từ bin `center/mid/edge`.*
+_Ảnh minh hoạ quan sát, **không phải đáp án C0** — ADASIND của Singh, Biswas và Paul, CC BY 4.0; bản repo chọn tập con và làm mờ khuôn mặt/biển số. Quan sát vòng kính, méo ở rìa và vùng thân xe ở đáy; không suy vị trí gần/xa của vật từ bin `center/mid/edge`._
 
 3. **Ctrl+S → Menu → Export job dataset → CVAT for images 1.1**, tắt **Save images**, tải ZIP. Chạy tuần tự `python3 lab11.py lock calib <zip-C0>`, `python3 lab11.py reference calib`, `python3 lab11.py compare calib`. Mã khoá nằm trong `submission/p1_calib/lock.txt`; sau khoá mới mở reference. Đọc `submission/p1_calib/compare.md` và `compare.html` để chọn ca cần giải thích. Đây là teaching reference đã sửa tay, có thể sai; nếu thấy ca đáng ngờ, ghi frame, vật và luật, không tự biến reference thành chân lý.
 4. **Sau khi tự làm và khoá C0**, xem đồ hoạ tổng hợp pre-label do Lab Coach chiếu hoặc ở dưới; ghi ba finding đầu vào `submission/findings.csv`, nêu rõ tín hiệu nào là số tổng hợp và ca nào cần soi trên ảnh. Tham gia clinic 12 phút trên [sáu ngộ nhận](docs/06-misconceptions-vi.md).
 
 ![Đồ hoạ tổng hợp quality report pre-label, không phải ảnh chụp màn hình CVAT](assets/worked/prelabel-quality.png)
 
-*Tín hiệu dạy học từ thử nghiệm CVAT local trên 48 frame: các số trong hình thuộc pre-label YOLO26m so với teaching reference của lần thử đó. Chúng **không** là điểm đạt của bạn, không chứng minh mọi conflict là lỗi model, và không thay việc soi frame. Ignore region được `python3 lab11.py compare ...` xử lý khác báo cáo CVAT; đọc [taxonomy và giới hạn phép đo](docs/05-taxonomy-vi.md).*
+_Tín hiệu dạy học từ thử nghiệm CVAT local trên 48 frame: các số trong hình thuộc pre-label YOLO26m so với teaching reference của lần thử đó. Chúng **không** là điểm đạt của bạn, không chứng minh mọi conflict là lỗi model, và không thay việc soi frame. Ignore region được `python3 lab11.py compare ...` xử lý khác báo cáo CVAT; đọc [taxonomy và giới hạn phép đo](docs/05-taxonomy-vi.md)._
 
 **Điểm dừng:** có `submission/p1_calib/annotations.xml`, `lock.txt`, `reference.txt`, `compare.md` và `compare.html`; ba dòng đầu trong `findings.csv` nêu đúng frame/object khi ghi ca cụ thể. Nếu `python3 lab11.py reference calib` báo chưa khoá, làm lại đúng thứ tự. Nếu upload prefill thất bại, báo Lab Coach; [cách thao tác CVAT](docs/01-guide-cvat-vi.md) nêu đường lùi vẽ từ ảnh gốc.
 
 ## P2 · phút 70–125 — gán nhãn fisheye, tự soát và khóa bản cuối
 
-*Phút 70–125 · vai Annotator: bản nháp → tự soát → bản khóa.*
+_Phút 70–125 · vai Annotator: bản nháp → tự soát → bản khóa._
 
 1. Chạy `python3 lab11.py cvat <slice-trong-mode.json>`. Lệnh in **đúng ba ảnh** và file `assets/prefill/<slice>.xml`. Tạo task mới như P1; tên phải chứa `raw_fisheye`. Import XML bằng **Actions → Upload annotations → CVAT 1.1**. Frame 1 có nửa box prefill và `lens_border`; bạn phải soát từng box, sửa/giữ/xoá/vẽ thêm. Nếu cần hỗ trợ, chạy `python3 lab11.py cvat <slice> --support` **trước khi tạo/import task** để lấy prefill thêm cho frame 2; chuẩn nhãn và bằng chứng không đổi. [Support và stretch](docs/09-support-stretch-vi.md) giải thích lựa chọn này.
 2. Mở từng frame bằng **F** (tiếp) và **D** (trước). **Draw new rectangle → Label → Shape**, bấm góc trên trái rồi góc dưới phải; chọn object, kéo cạnh/đỉnh để sửa; **Del** xoá, **Ctrl+Z** hoàn tác. **Draw new polygon → ignore_region → Shape**, bấm từng điểm và **N/Done**, rồi ở sidebar **Objects** chọn `reason`: `ego_body` cho thân xe khi nhìn thấy, `lens_border` chỉ soát polygon đã import; các `reason` khác theo R06. Frame `adasind_006840.jpg` và `adasind_271039.jpg` không có ego body nhìn thấy, đừng thêm polygon cho hai frame đó. Dùng [checklist 9 mục](docs/04-selfqc-checklist-vi.md) khi soát scope, class, rider, geometry, attribute, thiếu/trùng và ignore.
@@ -146,15 +146,15 @@ Lọc `submission/findings.csv` theo `action=rework` và `severity=P0/P1`. Chỉ
 
 ## Khi một bước không chạy
 
-| Tín hiệu | Kiểm và khôi phục |
-|---|---|
-| `python3: command not found` hoặc `py` không chạy | Gửi ảnh lỗi cho Lab Coach để cài Python 3.9 trở lên; không cài `make` và không tải file lạ để né lỗi. |
-| CVAT không mở ở `localhost:8080` | Kiểm Docker Desktop; trong thư mục CVAT Day 2 chạy `docker compose start`, trở lại repo và chạy `python3 lab11.py doctor`. |
-| Import prefill không hiện | Kiểm đúng task/slice, đúng `assets/prefill/<slice>.xml`, format **CVAT 1.1**; xem [hướng dẫn CVAT](docs/01-guide-cvat-vi.md), báo Lab Coach trước khi vẽ lại từ đầu. |
-| `draft`/`lock` báo thiếu hoặc sai frame | Export đúng job và đúng ba ảnh lệnh `python3 lab11.py cvat <slice>` in ra; nếu đã ghi `degrade frame3`, đọc số frame được phép trong [degrade](docs/08-degrade-vi.md). |
-| `reference` báo chưa khoá | Khoá đúng vòng bằng export cuối trước; không mở ZIP trong `refs/` để làm bài trước. |
-| File đã đổi sau khoá hoặc mã QA không khớp | Dùng đúng file export đã khoá. Nếu cần thay bằng file mới, ghi lý do vào decision log rồi khoá lại với `--relock`; báo người soát mã mới. |
-| Chỉ số local khác hình pre-label hoặc CVAT | Kiểm đang so **slice và đối tượng** nào, ngưỡng và ignore; đọc [taxonomy](docs/05-taxonomy-vi.md). Số trong hình P1 thuộc lần thử pre-label 48 frame, không phải điểm trên slice của bạn. |
-| `python3 lab11.py check` thất bại | Đọc từng lỗi, dùng `python3 lab11.py status` để tìm bước kế; lệnh không tự sửa nhãn hay thay quyết định của người soát. |
+| Tín hiệu                                          | Kiểm và khôi phục                                                                                                                                                                         |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `python3: command not found` hoặc `py` không chạy | Gửi ảnh lỗi cho Lab Coach để cài Python 3.9 trở lên; không cài `make` và không tải file lạ để né lỗi.                                                                                     |
+| CVAT không mở ở `localhost:8080`                  | Kiểm Docker Desktop; trong thư mục CVAT Day 2 chạy `docker compose start`, trở lại repo và chạy `python3 lab11.py doctor`.                                                                |
+| Import prefill không hiện                         | Kiểm đúng task/slice, đúng `assets/prefill/<slice>.xml`, format **CVAT 1.1**; xem [hướng dẫn CVAT](docs/01-guide-cvat-vi.md), báo Lab Coach trước khi vẽ lại từ đầu.                      |
+| `draft`/`lock` báo thiếu hoặc sai frame           | Export đúng job và đúng ba ảnh lệnh `python3 lab11.py cvat <slice>` in ra; nếu đã ghi `degrade frame3`, đọc số frame được phép trong [degrade](docs/08-degrade-vi.md).                    |
+| `reference` báo chưa khoá                         | Khoá đúng vòng bằng export cuối trước; không mở ZIP trong `refs/` để làm bài trước.                                                                                                       |
+| File đã đổi sau khoá hoặc mã QA không khớp        | Dùng đúng file export đã khoá. Nếu cần thay bằng file mới, ghi lý do vào decision log rồi khoá lại với `--relock`; báo người soát mã mới.                                                 |
+| Chỉ số local khác hình pre-label hoặc CVAT        | Kiểm đang so **slice và đối tượng** nào, ngưỡng và ignore; đọc [taxonomy](docs/05-taxonomy-vi.md). Số trong hình P1 thuộc lần thử pre-label 48 frame, không phải điểm trên slice của bạn. |
+| `python3 lab11.py check` thất bại                 | Đọc từng lỗi, dùng `python3 lab11.py status` để tìm bước kế; lệnh không tự sửa nhãn hay thay quyết định của người soát.                                                                   |
 
 **Việc nhỏ tiếp theo khi lạc đường:** chạy `python3 lab11.py status`, mở đúng file hoặc lệnh nó gợi ý, rồi kiểm lại điểm dừng của pha hiện tại.

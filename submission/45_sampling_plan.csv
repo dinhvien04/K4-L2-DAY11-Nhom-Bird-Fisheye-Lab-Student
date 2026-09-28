@@ -1,9 +1,9 @@
 camera_id,slice_type,frames,risk,rationale
-front,normal,,TODO,TODO
-front,hard,,TODO,TODO
-rear,normal,,TODO,TODO
-rear,hard,,TODO,TODO
-left,normal,,TODO,TODO
-left,hard,,TODO,TODO
-right,normal,,TODO,TODO
-right,hard,,TODO,TODO
+front,normal,30,Lượt xe đông ở phía trước và tốc độ thay đổi,Đảm bảo bao phủ các trường hợp giao thông thông thường khu vực tiền cảnh
+front,hard,30,Chói sáng ngược nắng và phương tiện cắt ngang đột ngột,Kiểm chứng độ chính xác khi bị lóa mắt thấu kính và vật thể cắt ngang góc hẹp
+rear,normal,25,Phương tiện bám đuôi ở khoảng cách an toàn,Theo dõi luồng giao thông di chuyển phía sau xe ở dải tốc độ ổn định
+rear,hard,25,Đèn pha xe sau chiếu rọi ban đêm và vật thể trong vùng mù gần cản,Kiểm soát lỗi lóa sáng do đèn pha và khu vực khuất tầm nhìn sát cản sau
+left,normal,20,Xe máy chèn làn bên trái ở tốc độ thấp,Đánh giá khả năng phát hiện phương tiện di chuyển song song bên hông trái
+left,hard,25,Vùng viền méo thấu kính mắt cá và điểm mù góc seam trái-trước,Phát hiện biến dạng hình học vật thể tại vùng chồng lấp camera trước-trái
+right,normal,20,Xe máy chèn làn bên phải ở tốc độ thấp,Theo dõi các phương tiện thô sơ di chuyển sát hông phải xe
+right,hard,25,Điểm mù góc seam phải-sau và vật thể kích thước nhỏ ở rìa thấu kính,Đánh giá hiện tượng trùng lặp hoặc sót nhãn ở vùng giao thấu kính phải-sau

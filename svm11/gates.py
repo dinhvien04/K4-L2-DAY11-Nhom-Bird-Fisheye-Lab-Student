@@ -25,11 +25,11 @@ def doctor(base):
         messages.append("✓ Python %s.%s" % sys.version_info[:2])
     url = os.environ.get("CVAT_URL", "https://cvat.itup.io.vn").rstrip("/")
     try:
-        req = urllib.request.Request(
+        request = urllib.request.Request(
             url + "/api/server/about",
-            headers={"User-Agent": "Mozilla/5.0"}
+            headers={"User-Agent": "Mozilla/5.0"},
         )
-        with urllib.request.urlopen(req, timeout=5) as response:
+        with urllib.request.urlopen(request, timeout=5) as response:
             about = json.loads(response.read())
         version = str(about.get("version", "không rõ"))
         messages.append("✓ CVAT %s" % version)
