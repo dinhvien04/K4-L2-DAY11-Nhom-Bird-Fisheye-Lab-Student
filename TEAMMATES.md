@@ -11,7 +11,7 @@
 - Tên định danh vai A dùng cho --self: huynh
 - Kênh trao đổi nội bộ: Zalo nhóm
 - Đại diện nộp (vai C): Lộc
-- Commit chốt bài: 57edd72 (và các commit hoàn thiện hồ sơ trên main)
+- Commit chốt bài: [Sẽ cập nhật SHA của commit cuối sau khi relock và hoàn tất]
 
 ## 2. Ba vai chính
 
@@ -33,7 +33,7 @@ Phân công slice trong `mode.json`: Huỳnh (B3-center), Lộc (B4-mid), Viên 
 | P0 · Chốt môi trường và vai | C (loc) → A (huynh), B (vien)  | mode.json, slice B3-center, phân vai                       | Kiểm mode.json đúng 3 thành viên, slice B3-center        | Hoàn thành             |
 | P1 · Hiệu chuẩn C0          | A (huynh) → C (loc)            | p1\_calib/annotations.xml, lock 9FFB-137A                  | C kiểm lock và chạy reference/compare calib              | Hoàn thành             |
 | P2 · Khóa bản đầu           | A (huynh) → B (vien), C (loc)  | r1\_craft/annotations.xml, lock A91B-0A4B, slice B3-center | B xác nhận mã khóa khớp, C kiểm đúng phiên bản           | Hoàn thành             |
-| P3 · Chốt QA mù             | B (vien) → C (loc), A (huynh)  | qa\_review.md, findings r2\_qa, ảnh screenshots/           | C kiểm nhận xét có rule/object\_ref, A phản hồi sau chốt | Hoàn thành             |
+| P3 · Chốt QA mù             | A (huynh) & B (vien) → C (loc) | qa\_review.md, findings r2\_qa, mã 5CED-14DA (slice B4-mid) | C (chủ nhãn B4-mid) kiểm nhận xét có rule/object\_ref, ghi nhận lỗi cần sửa | Hoàn thành             |
 | P4 · Quyết định sửa         | C (loc) → A (huynh), B (vien)  | findings r3\_diag, decision log                            | A/B đối chiếu quyết định với ảnh                         | Hoàn thành             |
 | P5 · Kiểm bản sửa           | A (huynh) → B (vien) → C (loc) | rework/annotations-v2.xml, lock2 6A13-12AB, delta.md       | B kiểm lại ca đã sửa, C đọc delta                        | Hoàn thành             |
 | P6 · Chốt nộp               | A (huynh), B (vien) → C (loc)  | manifest.json, commit chốt                                 | Cả ba duyệt cùng một commit                              | Hoàn thành             |
