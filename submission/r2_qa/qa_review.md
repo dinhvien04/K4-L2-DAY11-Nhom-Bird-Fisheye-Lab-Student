@@ -1,6 +1,10 @@
 # QA review · B4-mid
 
-Mã khóa: 5CED-14DA
+- **Reviewer (B):** Nguyễn Đình Viên
+- **Chủ nhãn (A):** Nguyễn Huỳnh
+- **Slice chung:** B3-center
+- **Mã khóa đã kiểm:** 5CED-14DA (QA slice B4-mid của Lộc)
+- **Ngày review:** 2026-09-28
 
 | frame | object_ref | rule_id | nhận xét |
 |---|---|---|---|

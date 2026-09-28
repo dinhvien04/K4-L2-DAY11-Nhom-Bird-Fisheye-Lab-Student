@@ -31,8 +31,15 @@
 
 Hai bảng trên do `python3 lab11.py card` tính từ `findings.csv`; chạy lại lệnh sẽ cập nhật bảng và giữ nguyên mục này. Viết cho lỗi nổi bật nhất, dẫn frame/`object_ref`.
 
-- **Nguyên nhân khả dĩ (`why`) và vì sao bạn nghĩ vậy**: Lỗi SPURIOUS và MISSING xảy ra chủ yếu ở vùng thấu kính fisheye biến dạng `edge` zone do hiện tượng lóa sáng và nhiễu viền bóng râm làm mô hình AI dự đoán thừa/sót box. Đồng thời người gán nhãn bỏ sót các thuộc tính `occluded` khi đối tượng bị xe khác che một phần.
+- **Nguyên nhân khả dĩ (`why`) và vì sao bạn nghĩ vậy**:
+  - **SPURIOUS ở edge (6 ca):** Phần lớn là model YOLO26m dự đoán thừa box ở vùng rìa thấu kính fisheye, nơi biến dạng hình học cao — ví dụ frame `adasind_152940.jpg` có 5 box M_only (M1, M3, M4, M7, M8) đều là `E4_model_domain`. Model chưa được huấn luyện với dữ liệu fisheye biến dạng nên sinh nhiều false positive ở vùng viền kính.
+  - **MISSING ở center (3 ca):** Người gán nhãn (L) bỏ sót đối tượng mà reference (R) có — ví dụ frame `adasind_152940.jpg` / R6 là `R_only` + `E1_annotator_error`, và frame `adasind_167700.jpg` / R4+M4 là `RM_noL` → annotator thiếu chú ý ở vùng trung tâm khi có nhiều đối tượng chồng chéo.
+  - **WRONG_CLASS ở edge (2 ca):** Frame `adasind_167700.jpg` / L7+R4 và L8+R6 bị gán sai class, nguyên nhân là hình dạng vật thể bị méo ở rìa fisheye khiến khó phân biệt Bike vs Pedestrian.
+
 - **Cách sửa và ai nhận việc (`owner`)**:
-  - `annotator`: Thực hiện gán nhãn bổ sung thuộc tính `occluded` và chỉnh sửa các ô box ôm sát vật thể ở bước Rework.
-  - `ai_team`: Điều chỉnh ngưỡng tự tin (confidence threshold) và tập huấn luyện mô hình với ma trận nắn méo thấu kính fisheye.
-- **Bằng chứng (ảnh trong `screenshots/`, dòng findings, rule)**: Minh chứng tại dòng `r2_qa` frame `adasind_271039.jpg` (L1, L2), ảnh bằng chứng `screenshots/r2_l1.png` tuân theo quy tắc R01 và R04.
+  - `annotator` (8 ca rework): Kiểm tra lại từng frame, bổ sung box thiếu (MISSING), xóa box thừa (SPURIOUS do L) và sửa class (WRONG_CLASS). Đặc biệt chú ý vùng edge khi vẽ.
+  - `ai_team` (7 ca keep_with_reason): Các box M_only SPURIOUS cho thấy model cần fine-tune với dữ liệu fisheye; hiện tại giữ nguyên nhãn người vì model chưa đáng tin ở vùng biến dạng.
+  - `data_ops` (1 ca escalate): Frame `adasind_167700.jpg` / L8+M8 có cả L và M thấy nhưng R không thấy → cần kiểm tra lại chất lượng reference tại đây.
+
+- **Bằng chứng (ảnh trong `screenshots/`, dòng findings, rule)**: Dòng r3_diag trong findings.csv (16 dòng) có đầy đủ frame/object_ref/cell/evidence. Ảnh minh chứng tại `screenshots/`. Báo cáo overlay: `r1_craft/compare.html`, `r3_diag/model_compare.html`.
+
