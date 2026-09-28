@@ -1,0 +1,15 @@
+{
+  "members": [
+    "huynh",
+    "loc",
+    "vien"
+  ],
+  "assignments": {
+    "huynh": "B3-center",
+    "loc": "B4-mid",
+    "vien": "B1-mid"
+  },
+  "self": "huynh",
+  "slice": "B3-center",
+  "degrade": []
+}

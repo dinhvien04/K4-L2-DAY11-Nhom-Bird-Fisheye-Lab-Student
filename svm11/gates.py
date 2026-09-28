@@ -23,9 +23,13 @@ def doctor(base):
         messages.append("✗ Cần Python 3.9 trở lên")
     else:
         messages.append("✓ Python %s.%s" % sys.version_info[:2])
-    url = os.environ.get("CVAT_URL", "http://localhost:8080").rstrip("/")
+    url = os.environ.get("CVAT_URL", "https://cvat.itup.io.vn").rstrip("/")
     try:
-        with urllib.request.urlopen(url + "/api/server/about", timeout=5) as response:
+        request = urllib.request.Request(
+            url + "/api/server/about",
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        with urllib.request.urlopen(request, timeout=5) as response:
             about = json.loads(response.read())
         version = str(about.get("version", "không rõ"))
         messages.append("✓ CVAT %s" % version)

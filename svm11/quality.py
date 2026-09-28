@@ -18,7 +18,7 @@ from .zones import ignored
 class Cvat:
     def __init__(self, environ=None):
         env = os.environ if environ is None else environ
-        self.url = env.get("CVAT_URL", "http://localhost:8080").rstrip("/")
+        self.url = env.get("CVAT_URL", "https://cvat.itup.io.vn").rstrip("/")
         self.auth = ""
         if env.get("CVAT_TOKEN"):
             self.auth = "Bearer " + env["CVAT_TOKEN"]
