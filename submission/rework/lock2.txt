@@ -1,0 +1,9 @@
+round: rework
+slice: B3-center
+sha256: 6a1312ab6882cd3caa9e58b91bd5da84d7dc1672882888c2e7d3ec0dd28d2a73
+code: 6A13-12AB
+locked_at: 2026-09-28T19:15:44+07:00
+shapes: box=26, polygon=6
+prefill_kept: 2
+prefill_edited: 1
+new: 23
