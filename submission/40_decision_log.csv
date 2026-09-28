@@ -1,5 +1,5 @@
 id,date,question,decision,rationale,status
 DEC-01,2026-09-28,Có gán nhãn cho xe máy ở vùng viền kính biến dạng không,Có gán nhãn,Xe máy là nhóm đối tượng ưu tiên an toàn cao nhất dù ở vùng viền méo,resolved
-DEC-02,2026-09-28,Cách xử lý đối tượng bị che khuất trên 80% bởi xe khác,Tích occluded,Bảo toàn thông tin đối tượng cho mô hình nhận diện trong điều kiện bị che khuất,resolved
-DEC-03,2026-09-28,Xử lý hiện tượng trùng lặp nhãn ở vùng seam giữa 2 thấu kính,Escalate cho Data Ops,Cần có quy chuẩn đồng bộ mốc thời gian và ma trận hiệu chỉnh 3D trước khi gộp nhãn,escalated
+DEC-02,2026-09-28,"Cách xử lý đối tượng bị che khuất phần lớn (ngưỡng đề xuất của nhóm: trên 80%) bởi xe khác",Tích occluded,Bảo toàn thông tin đối tượng cho mô hình nhận diện trong điều kiện bị che khuất,resolved
+DEC-03,2026-09-28,"Xử lý hiện tượng trùng lặp nhãn ở vùng seam giữa 2 thấu kính (kịch bản giả lập 4 camera)",Escalate cho Data Ops,Cần có quy chuẩn đồng bộ mốc thời gian và ma trận hiệu chỉnh 3D trước khi gộp nhãn,escalated
 DEC-04,2026-09-28,Quy định vẽ polygon ignore_region cho phần nắp capo xe ego,Vẽ polygon ego_body,Loại bỏ nhiễu từ phần thân xe thử nghiệm ở đáy khung hình fisheye,resolved

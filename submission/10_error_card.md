@@ -41,5 +41,5 @@ Hai bảng trên do `python3 lab11.py card` tính từ `findings.csv`; chạy l�
   - `ai_team` (7 ca keep_with_reason): Các box M_only SPURIOUS cho thấy model cần fine-tune với dữ liệu fisheye; hiện tại giữ nguyên nhãn người vì model chưa đáng tin ở vùng biến dạng.
   - `data_ops` (1 ca escalate): Frame `adasind_167700.jpg` / L8+M8 có cả L và M thấy nhưng R không thấy → cần kiểm tra lại chất lượng reference tại đây.
 
-- **Bằng chứng (ảnh trong `screenshots/`, dòng findings, rule)**: Dòng r3_diag trong findings.csv (16 dòng) có đầy đủ frame/object_ref/cell/evidence. Ảnh minh chứng tại `screenshots/`. Báo cáo overlay: `r1_craft/compare.html`, `r3_diag/model_compare.html`.
+- **Bằng chứng (ảnh trong `screenshots/`, dòng findings, rule)**: Dòng r3_diag trong findings.csv (16 dòng) có đầy đủ frame/object_ref/cell/action. Báo cáo overlay trực quan: `r1_craft/compare.html`, `r3_diag/model_compare.html`. Ảnh chụp minh chứng khu vực thấu kính lưu tại `screenshots/r2_l1.png` và `screenshots/r2_l2.png`.
 
