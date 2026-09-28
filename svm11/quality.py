@@ -18,7 +18,7 @@ from .zones import ignored
 class Cvat:
     def __init__(self, environ=None):
         env = os.environ if environ is None else environ
-        self.url = env.get("CVAT_URL", "http://localhost:8080").rstrip("/")
+        self.url = env.get("CVAT_URL", "https://cvat.itup.io.vn").rstrip("/")
         self.auth = ""
         if env.get("CVAT_TOKEN"):
             self.auth = "Bearer " + env["CVAT_TOKEN"]
@@ -29,7 +29,9 @@ class Cvat:
             self.auth = "Token " + key
 
     def call(self, method, path, body=None, files=None, auth=True):
-        headers = {"Authorization": self.auth} if auth else {}
+        headers = {"User-Agent": "Mozilla/5.0"}
+        if auth:
+            headers["Authorization"] = self.auth
         if files is not None:
             boundary = uuid.uuid4().hex
             parts = []
